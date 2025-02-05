@@ -4,6 +4,7 @@ import { IonReactRouter } from "@ionic/react-router";
 import { App as CapacitorApp } from "@capacitor/app";
 import { StatusBar } from "@capacitor/status-bar";
 import { Toast } from "@capacitor/toast";
+import { useState } from "react";
 import Home from "./pages/Home";
 
 /* Core CSS required for Ionic components to work properly */
@@ -39,16 +40,21 @@ import "./theme/variables.css";
 setupIonicReact();
 
 const App: React.FC = () => {
+  const [exiting, setExiting] = useState(false);
   StatusBar.setOverlaysWebView({ overlay: false });
   StatusBar.setBackgroundColor({ color: "#000000" });
   CapacitorApp.addListener("backButton", ({ canGoBack }) => {
     if (!canGoBack) {
-      CapacitorApp.exitApp();
-    } else {
-      Toast.show({
-        text: "Press again to exit",
-        duration: "short",
-      });
+      const timer = setTimeout(() => {
+        setExiting(false);
+      }, 2000);
+      if (!exiting) {
+        Toast.show({ text: "Press again to exit", duration: "short" });
+        setExiting(true);
+      } else {
+        CapacitorApp.exitApp();
+        clearTimeout(timer);
+      }
     }
   });
   return (
