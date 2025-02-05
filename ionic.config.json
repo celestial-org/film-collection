@@ -1,5 +1,8 @@
 {
-  "name": "ionic-app-base",
-  "integrations": {},
-  "type": "react-vite"
+  "name": "Film Collection",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "28b4b3b5"
 }

@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Film Collection</string>
-    <string name="title_activity_main">Film Collection</string>
-    <string name="package_name">com.ionic.filmcollection</string>
-    <string name="custom_url_scheme">com.ionic.filmcollection</string>
-</resources>
