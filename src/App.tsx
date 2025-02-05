@@ -52,8 +52,8 @@ const App: React.FC = () => {
         Toast.show({ text: "Press again to exit", duration: "short" });
         setExiting(true);
       } else {
-        CapacitorApp.exitApp();
         clearTimeout(timer);
+        CapacitorApp.exitApp();
       }
     }
   });
