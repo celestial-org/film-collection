@@ -14,7 +14,8 @@ class PhimApi {
     const resp = await fetch(
       this.baseUrl + "/v1/api/tim-kiem?keyword=" + keyword + "&page=" + page
     );
-    return await resp.json();
+    const data = await resp.json();
+    return data.data.items;
   }
 
   async getList(

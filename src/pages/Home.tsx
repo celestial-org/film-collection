@@ -29,6 +29,10 @@ const Home: React.FC = () => {
   const [isCategory, setIsCategory] = useState(false);
   const [selectedMovie, setSelectedMovie]: any = useState(null);
   const [isOpenMovie, setIsOpenMovie] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState(null);
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
 
   const loadMore = () => {
     setPageCount(pageCount + 1);
@@ -47,6 +51,24 @@ const Home: React.FC = () => {
       ]);
     });
   }, [selected, pageCount]);
+
+  useEffect(() => {
+    if (searchTimeout) {
+      clearTimeout(searchTimeout);
+    }
+    const newTimeout = setTimeout(() => {
+      if (searchKeyword) {
+        api.search(searchKeyword).then((data) => {
+          setMovies(data);
+        });
+      } else {
+        api.getList(selected, isCategory, pageCount).then((data) => {
+          setMovies(data);
+        });
+      }
+    }, 1500);
+    setSearchTimeout(newTimeout);
+  }, [searchKeyword]);
 
   useEffect(() => {
     if (selectedMovie) {
@@ -69,6 +91,8 @@ const Home: React.FC = () => {
             <IonSearchbar
               showCancelButton="focus"
               placeholder="Tìm Kiếm..."
+              value={searchKeyword}
+              onIonInput={(e) => setSearchKeyword(e.detail.value)}
             ></IonSearchbar>
           </IonToolbar>
         </IonHeader>
