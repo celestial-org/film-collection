@@ -1,23 +1,13 @@
 import {
   IonMenu,
   IonHeader,
-  IonToolbar,
   IonTitle,
   IonContent,
-  IonIcon,
   IonList,
-  IonLabel,
-  IonButton,
-  IonToggle,
   IonItem,
   IonSelect,
   IonSelectOption,
-  IonSegment,
-  IonSegmentButton,
-  IonSegmentView,
-  IonSegmentContent,
 } from "@ionic/react";
-import { list, albums } from "ionicons/icons";
 import { useState, useEffect } from "react";
 import { topics, fetchCategories } from "../lib/phimapi";
 

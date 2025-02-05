@@ -33,7 +33,7 @@ export default function WatchModal({
 }: any) {
   const [selectedSegment, setSelectedSegment] = useState("player");
   const [selectedEpisode, setSelectedEpisode] = useState(
-    movieData.episodes[0].server_data[0].link_embed
+    movieData.episodes[0].server_data[0].link_m3u8
   );
   return (
     <IonModal isOpen={isOpen}>
@@ -63,14 +63,13 @@ export default function WatchModal({
       <IonContent>
         <IonSegmentView>
           <IonSegmentContent id="player">
-            <iframe
+            <video
               width="100%"
-              height="400px"
+              height="100%"
               src={selectedEpisode}
-              allowFullScreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              controls
               style={{ border: "none" }}
-            ></iframe>
+            ></video>
           </IonSegmentContent>
           <IonSegmentContent id="info">
             <div
@@ -138,7 +137,7 @@ export default function WatchModal({
                       onIonChange={(e) => setSelectedEpisode(e.detail.value)}
                     >
                       {server.server_data.map((episode: any) => (
-                        <IonSelectOption value={episode.link_embed}>
+                        <IonSelectOption value={episode.link_m3u8}>
                           {episode.filename}
                         </IonSelectOption>
                       ))}

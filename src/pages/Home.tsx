@@ -82,7 +82,7 @@ const Home: React.FC = () => {
         setSelected={(v: string) => setSelected(v)}
         setIsCategory={(v: boolean) => setIsCategory(v)}
       />
-      <IonPage>
+      <IonPage id="main-content">
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
