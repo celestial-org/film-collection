@@ -22,7 +22,8 @@ import {
   IonSegmentButton,
   IonSegmentContent,
 } from "@ionic/react";
-import { useState } from "react";
+import { StatusBar } from "@capacitor/status-bar";
+import { useState, useEffect } from "react";
 import { close, remove, film, information, list } from "ionicons/icons";
 
 export default function WatchModal({
@@ -35,6 +36,16 @@ export default function WatchModal({
   const [selectedEpisode, setSelectedEpisode] = useState(
     movieData.episodes[0].server_data[0].link_m3u8
   );
+
+  useEffect(() => {
+    document.onfullscreenchange = () => {
+      if (document.fullscreenElement) {
+        StatusBar.hide();
+      } else {
+        StatusBar.show();
+      }
+    };
+  });
   return (
     <IonModal isOpen={isOpen}>
       <IonHeader>
