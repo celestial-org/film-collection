@@ -147,7 +147,7 @@ export default function WatchModal({
         {" "}
         <IonSegment
           value={selectedSegment}
-          onIonChange={(e) => setSelectedSegment(e.detail.value)}
+          onIonChange={(e: any) => setSelectedSegment(e.detail.value)}
         >
           <IonSegmentButton value="player" contentId="player">
             <IonIcon icon={film} />
