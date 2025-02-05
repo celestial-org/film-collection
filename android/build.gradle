@@ -31,6 +31,10 @@ task customClean(type: Delete) {
 
 android {
     compileSdkVersion 35
+     defaultConfig {
+        applicationId "com.ionic.filmcollection"
+        namespace "http://schemas.android.com/apk/res-auto"
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
