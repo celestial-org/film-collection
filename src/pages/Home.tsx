@@ -92,7 +92,7 @@ const Home: React.FC = () => {
               showCancelButton="focus"
               placeholder="Tìm Kiếm..."
               value={searchKeyword}
-              onIonInput={(e) => setSearchKeyword(e.detail.value)}
+              onIonInput={(e: any) => setSearchKeyword(e.detail.value)}
             ></IonSearchbar>
           </IonToolbar>
         </IonHeader>
