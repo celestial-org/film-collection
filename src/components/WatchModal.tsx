@@ -23,6 +23,7 @@ import {
   IonSegmentContent,
 } from "@ionic/react";
 import { StatusBar } from "@capacitor/status-bar";
+import { ScreenOrientation } from "@capacitor/screen-orientation";
 import { useState, useEffect } from "react";
 import { close, remove, film, information, list } from "ionicons/icons";
 
@@ -41,8 +42,10 @@ export default function WatchModal({
     document.onfullscreenchange = () => {
       if (document.fullscreenElement) {
         StatusBar.hide();
+        ScreenOrientation.lock({ orientation: "landscape" });
       } else {
         StatusBar.show();
+        ScreenOrientation.unlock();
       }
     };
   });
