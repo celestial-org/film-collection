@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'film.collection',
-  appName: 'film-collection',
+  appId: 'com.ionic.filmcollection',
+  appName: 'Film Collection',
   webDir: 'dist'
 };
 

@@ -1,4 +1,4 @@
-package film.collection;
+package com.ionic.filmcollection;
 
 import com.getcapacitor.BridgeActivity;
 
