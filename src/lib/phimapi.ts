@@ -7,7 +7,7 @@ class PhimApi {
   async get(slug: string) {
     const resp = await fetch(this.baseUrl + "/phim/" + slug);
     const data = await resp.json();
-    return data.movie;
+    return data;
   }
 
   async search(keyword: string, page: number = 1) {

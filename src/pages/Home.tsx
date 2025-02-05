@@ -80,7 +80,7 @@ const Home: React.FC = () => {
                 <WatchModal
                   isOpen={isOpenMovie}
                   setIsOpen={setIsOpenMovie}
-                  movie={selectedMovie}
+                  movieData={selectedMovie}
                   setSelectedMovie={setSelectedMovie}
                 />
               ) : (
