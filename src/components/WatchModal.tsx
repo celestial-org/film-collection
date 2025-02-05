@@ -63,7 +63,14 @@ export default function WatchModal({
       <IonContent>
         <IonSegmentView>
           <IonSegmentContent id="player">
-            <iframe width="100%" height="100%" src={selectedEpisode} />
+            <iframe
+              width="100%"
+              height="400px"
+              src={selectedEpisode}
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              style={{ border: "none" }}
+            ></iframe>
           </IonSegmentContent>
           <IonSegmentContent id="info">
             <div
