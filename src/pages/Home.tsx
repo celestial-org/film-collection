@@ -50,7 +50,7 @@ const Home: React.FC = () => {
         ...data.map((m: any) => (movies.includes(m) ? null : m)),
       ]);
     });
-  }, [selected, pageCount]);
+  }, [pageCount]);
 
   useEffect(() => {
     if (searchTimeout) {
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
       }
     }, 1500);
     setSearchTimeout(newTimeout);
-  }, [searchKeyword]);
+  }, [searchKeyword, selected]);
 
   useEffect(() => {
     if (selectedMovie) {
